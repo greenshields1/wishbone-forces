@@ -9,6 +9,7 @@ class force():
         self.position = position
         #Sets moments relative to (0,0) in 3 directions, scaled by distance in metres
         self.moments = np.dot(np.identity(3),np.cross(self.position,self.direction))
+        print(np.linalg.norm(direction))
 
 
 class force_calculator():
@@ -45,7 +46,8 @@ class data_manager():
 
     def forces_from_file(self,path):
         with open(path, newline='') as csvfile:
-            data = list(csv.reader(csvfile, delimiter='\t'))#
+            data = list(csv.reader(csvfile, delimiter=','))#
+            #print(np.array([i[1:] for i in data[1:]]))
         return np.array([i[0] for i in data[1:]]), np.array([i[1:] for i in data[1:]]).astype(float)
 
 
@@ -135,6 +137,7 @@ if __name__ == "__main__":
     df.at[len(scenario_labels), 'Scenario'] = "Max compression"
 
     df.to_csv("OutputForces.csv")
+    print("Completed")
 
 
     #generator = force_scenario_generator(COG,friction_coefficient,weight,contact,other_contact)

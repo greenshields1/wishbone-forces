@@ -52,28 +52,52 @@ class data_manager():
 
 
 if __name__ == "__main__":
-    
+    manager = data_manager()
+    position = "rear"
     #These values need to be set to define the VD geometry
     #Origin is defined as the middle of the two front wheel contact patches
     #####################################################################
-
-    #Set wheel center and contact patch position
-    contact = np.array([0,605.3,0])
-    other_contact = np.array([1550,605.3,0])#Contact at other set of wheels for force calcs
-    wheel_center = np.array([245.5,605.3,1])
-
-    #Set VD points, Damper OB is assumed to be the same as the LBJ
-    front_upper_IB = np.array([-150,308.5,329.1])
-    front_lower_IB = np.array([-171.27,208.9,127.5])
-    rear_upper_IB = np.array([175,308.5,329.1])
-    rear_lower_IB = np.array([241.13,208.9,127.5])
-    UBJ = np.array([10,528.53,368])
-    LBJ = np.array([-10,564.85,140])
-    DamperIB = np.array([115.45,188.86,568.76])
-
-    #Set steering track rod coordinates
-    steeringOB = np.array([62.76,531,203.41])
-    steeringIB = np.array([62.76,203.47,169.4])
+    if position == "front":
+        #Set wheel center and contact patch position
+        contact = np.array([0,605.3,0])
+        #other_contact = np.array([1550,605.3,0])#Contact at other set of wheels for force calcs
+        wheel_center = np.array([0,605.3,245.5])
+    
+        #Set VD points, Damper OB is assumed to be the same as the LBJ
+        front_upper_IB = np.array([-150,308.5,329.1])
+        front_lower_IB = np.array([-171.27,208.9,127.5])
+        rear_upper_IB = np.array([175,308.5,329.1])
+        rear_lower_IB = np.array([241.13,208.9,127.5])
+        UBJ = np.array([10,528.53,368])
+        LBJ = np.array([-10,564.85,140])
+        DamperIB = np.array([115.45,188.86,568.76])
+    
+        #Set steering track rod coordinates
+        steeringOB = np.array([62.76,531,203.41])
+        steeringIB = np.array([62.76,203.47,169.4])
+        
+        scenario_labels, input_forces = manager.forces_from_file("InputForcesFront.csv")
+        
+    else:
+        #Set wheel center and contact patch position
+        contact = np.array([1550,605.3,0])
+        #other_contact = np.array([1550,605.3,0])#Contact at other set of wheels for force calcs
+        wheel_center = np.array([1550,605.3,245.5])
+    
+        #Set VD points, Damper OB is assumed to be the same as the LBJ
+        front_upper_IB = np.array([1175,326.6,274.4])
+        front_lower_IB = np.array([1149.5,245,118.8])
+        rear_upper_IB = np.array([1495,326.6,274.4])
+        rear_lower_IB = np.array([1435,245,118.8])
+        UBJ = np.array([1550,528.5,310])
+        LBJ = np.array([1550,564.9,130])
+        DamperIB = np.array([1415,342,387.1])
+    
+        #Set tie rod coordinates
+        steeringOB = np.array([1608.8,564.65,142.44])
+        steeringIB = np.array([1448.1,205,126.61])
+        
+        scenario_labels, input_forces = manager.forces_from_file("InputForcesRear.csv")
 
     #####################################################################
 
@@ -104,7 +128,7 @@ if __name__ == "__main__":
     #Solve values
     calculator.form_matrix()
 
-    manager = data_manager()
+    
     scenario_labels, input_forces = manager.forces_from_file("InputForces.csv")
     output_forces = calculator.get_forces(input_forces)
 

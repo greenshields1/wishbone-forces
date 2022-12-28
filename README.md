@@ -1,9 +1,9 @@
 # Wishbone-Forces
  
-Change input forces in InputForces.csv
+Change input forces in InputForces(Front/Rear).csv
 
-Change Suspension Geometry in ForceSolver3D
+Change Suspension Geometry in ForceSolver3D and select whether you want to generate front or rear forces
 
-This generates an output forces file
+This generates OutputForces.csv
 
-To get the sizing you take the block from FrontVd.xlsx or RearVD.xlsx and paste it at the bottom
+To get the sizing you take the block from SizingBlock.xlsx and paste it underneath OutputForces.csv. Make sure that the lengths of the members are inputted correctly.

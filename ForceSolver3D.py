@@ -129,7 +129,7 @@ if __name__ == "__main__":
     calculator.form_matrix()
 
     
-    scenario_labels, input_forces = manager.forces_from_file("InputForces.csv")
+    #scenario_labels, input_forces = manager.forces_from_file("InputForces.csv")
     output_forces = calculator.get_forces(input_forces)
 
     df = pd.DataFrame()

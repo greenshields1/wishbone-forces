@@ -130,7 +130,7 @@ if __name__ == "__main__":
 
     
     #scenario_labels, input_forces = manager.forces_from_file("InputForces.csv")
-    output_forces = calculator.get_forces(input_forces)
+    output_forces = -calculator.get_forces(input_forces)
 
     df = pd.DataFrame()
     df["Scenario"] = scenario_labels

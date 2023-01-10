@@ -53,10 +53,11 @@ class data_manager():
 
 if __name__ == "__main__":
     manager = data_manager()
-    position = "rear"
     #These values need to be set to define the VD geometry
     #Origin is defined as the middle of the two front wheel contact patches
     #####################################################################
+    position = "front"
+    
     if position == "front":
         #Set wheel center and contact patch position
         contact = np.array([0,605.3,0])

@@ -56,7 +56,7 @@ if __name__ == "__main__":
     #These values need to be set to define the VD geometry
     #Origin is defined as the middle of the two front wheel contact patches
     #####################################################################
-    position = "front"
+    position = "rear"
     
     if position == "front":
         #Set wheel center and contact patch position

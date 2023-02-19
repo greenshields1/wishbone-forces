@@ -9,6 +9,8 @@ class force():
         self.position = position
         #Sets moments relative to (0,0) in 3 directions, scaled by distance in metres
         self.moments = np.dot(np.identity(3),np.cross(self.position,self.direction))
+        print(self.moments)
+        print(np.cross(self.position,self.direction))
         print(np.linalg.norm(direction))
 
 
@@ -99,6 +101,28 @@ if __name__ == "__main__":
         steeringIB = np.array([1448.1,205,126.61])
         
         scenario_labels, input_forces = manager.forces_from_file("InputForcesRear.csv")
+        
+    if position == "Test":
+        
+        #Set wheel center and contact patch position
+        contact = np.array([1550,605.3,0])
+        #other_contact = np.array([1550,605.3,0])#Contact at other set of wheels for force calcs
+        wheel_center = np.array([1550,605.3,245.5])
+    
+        #Set VD points, Damper OB is assumed to be the same as the LBJ
+        front_upper_IB = np.array([1175,326.6,310])
+        front_lower_IB = np.array([1149.5,245,130])
+        rear_upper_IB = np.array([1495,326.6,274.4])
+        rear_lower_IB = np.array([1435,245,118.8])
+        UBJ = np.array([1550,545,310])
+        LBJ = np.array([1550,545,130])
+        DamperIB = np.array([1415,342,387.1])
+    
+        #Set tie rod coordinates
+        steeringOB = np.array([1610,545,310])
+        steeringIB = np.array([1610,205,310])
+        
+        scenario_labels, input_forces = manager.forces_from_file("InputForcesRear.csv")
 
     #####################################################################
 
@@ -152,8 +176,8 @@ if __name__ == "__main__":
     ffl = df["F_front_lower - rod end"]
     frl = df["F_rear_lower - rod end"]
 
-    df["UBJ - spherical"] = (ffu**2+fru**2-2*ffu*fru*cos_UWB_angle)**0.5
-    df["LBJ - spherical"]=(ffl**2+frl**2-2*ffl*frl*cos_LWB_angle)**0.5
+    df["UBJ - spherical"] = (ffu**2+fru**2+2*ffu*fru*cos_UWB_angle)**0.5
+    df["LBJ - spherical"]= (ffl**2+frl**2+2*ffl*frl*cos_LWB_angle)**0.5
 
     df = df.append(df.min(axis = 0),ignore_index=True)
     df = df.append(df.max(axis = 0),ignore_index=True)

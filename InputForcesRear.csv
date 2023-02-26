@@ -1,26 +1,14 @@
 Scenario Name,F_0x,F_0y,F_0z,F_1x
-Self weight,0,0,750,0
-Brake,-1500,0,750,0
-Impact,0,0,750,-200
-Brake Impact,-1500,0,750,-200
-Corner Outside ,0,1600,1000,0
-Corner Outside Brake,-1400,1400,1000,0
-Corner Outside Impact,0,1600,1000,-200
-Corner Outside Brake Impact,-1400,1400,1000,-200
-Corner Inside ,0,-1500,750,0
-Corner Inside Brake,-1060,-1060,750,0
-Corner Inner Impact,0,-1500,750,-200
-Corner Inner Brake Impact,-1060,-1060,750,-200
-Accelerate and below,0,0,750,0
-Accelerate and below,1500,0,750,0
-Accelerate and below,0,0,750,-200
-Accelerate and below,1500,0,750,-200
-Accelerate and below,0,1600,1000,0
-Accelerate and below,1400,1400,1000,0
-Accelerate and below,0,1600,1000,-200
-Accelerate and below,1400,1400,1000,-200
-Accelerate and below,0,-1500,750,0
-Accelerate and below,1060,-1060,750,0
-Accelerate and below,0,-1500,750,-200
-Accelerate and below,1060,-1060,750,-200
-Full squat,0,0,1800,0
+Self weight,0,0,1400,0
+Brake,-1760,0,1096,0
+Corner Outside ,0,3909,1563,0
+Corner Outside Brake,,,,0
+Corner + Accelerate,,,,0
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,-3774,3774,1774,
+,4493,4001,1780,

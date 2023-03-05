@@ -1,7 +1,7 @@
 Scenario Name,F_0x,F_0y,F_0z,F_1x
 Self weight + down force,0,0,1400,0
-Corner Inner,0,-649,405,0
+Corner Inner,0,649,405,0
 Corner Outer,0,-3832,2395,0
 Braking,1002,0,626,0
-Brake + Corner Inner,473,-473,418,0
+Brake + Corner Inner,473,473,418,0
 Brake + Corner Outer,1435,-1435,1268,0

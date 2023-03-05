@@ -9,8 +9,8 @@ class force():
         self.position = position
         #Sets moments relative to (0,0) in 3 directions, scaled by distance in metres
         self.moments = np.dot(np.identity(3),np.cross(self.position,self.direction))
-        print(self.moments)
-        print(np.cross(self.position,self.direction))
+        #print(self.moments)
+        #print(np.cross(self.position,self.direction))
         print(np.linalg.norm(direction))
 
 

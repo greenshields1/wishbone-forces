@@ -1,7 +1,7 @@
 Scenario Name,F_0x,F_0y,F_0z,F_1x
-Self weight,0,0,1400,0
+Self weight,0,0,1400000,0
 Corner Inner,0,649,405,0
 Corner Outer,0,-3832,2395,0
-Braking,34780000,0,21740000,0
+Braking,3478,0,2174,0
 Brake + Corner Inner,1097,1097,970,0
 Brake + Corner Outer,3331,-3331,2944,0

@@ -58,7 +58,7 @@ if __name__ == "__main__":
     #These values need to be set to define the VD geometry
     #Origin is defined as the middle of the two front wheel contact patches
     #####################################################################
-    position = "rear"
+    position = "front"
     
     if position == "front":
         #Set wheel center and contact patch position
@@ -179,13 +179,17 @@ if __name__ == "__main__":
     df["UBJ - spherical"] = (ffu**2+fru**2+2*ffu*fru*cos_UWB_angle)**0.5
     df["LBJ - spherical"]= (ffl**2+frl**2+2*ffl*frl*cos_LWB_angle)**0.5
 
-    df = df.append(df.min(axis = 0),ignore_index=True)
-    df = df.append(df.max(axis = 0),ignore_index=True)
+    df = df._append(df.min(axis = 0),ignore_index=True)
+    df = df._append(df.max(axis = 0),ignore_index=True)
 
     df.at[len(scenario_labels) + 1, 'Scenario'] = "Max tension"
     df.at[len(scenario_labels), 'Scenario'] = "Max compression"
 
-    df.to_csv("OutputForces.csv")
+    #df.to_csv("OutputForces.csv")
+    
+    with open("OutputForces.csv", "w") as file:
+        df.to_csv(file)
+
     print("Completed")
 
 

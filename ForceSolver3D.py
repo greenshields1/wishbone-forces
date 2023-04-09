@@ -58,7 +58,7 @@ if __name__ == "__main__":
     #These values need to be set to define the VD geometry
     #Origin is defined as the middle of the two front wheel contact patches
     #####################################################################
-    position = "front"
+    position = "rear"
     
     if position == "front":
         #Set wheel center and contact patch position
@@ -76,7 +76,7 @@ if __name__ == "__main__":
         DamperIB = np.array([115.45,188.86,568.76])
     
         #Set steering track rod coordinates
-        steeringOB = np.array([62.76,531,203.41])
+        steeringOB = np.array([42.76,531,180.41])
         steeringIB = np.array([62.76,203.47,169.4])
         
         scenario_labels, input_forces = manager.forces_from_file("InputForcesFront.csv")
